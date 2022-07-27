@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://happyjustyn.github.io</id>
+    <title>Gridea</title>
+    <updated>2022-07-27T15:33:54.162Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://happyjustyn.github.io"/>
+    <link rel="self" href="https://happyjustyn.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://happyjustyn.github.io/images/avatar.png</logo>
+    <icon>https://happyjustyn.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[关于 SM4 加密算法在 Java 项目中使用的一些总结]]></title>
+        <id>https://happyjustyn.github.io/post/guan-yu-sm4-jia-mi-suan-fa-zai-java-xiang-mu-zhong-shi-yong-de-yi-xie-zong-jie/</id>
+        <link href="https://happyjustyn.github.io/post/guan-yu-sm4-jia-mi-suan-fa-zai-java-xiang-mu-zhong-shi-yong-de-yi-xie-zong-jie/">
+        </link>
+        <updated>2022-07-27T13:55:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="sm4-基本介绍">SM4 基本介绍</h2>
+<p>SM4 是一种分组加密算法, 分组大小(块大小)为 128 位(bit), 即 16 字节(Byte), 密码长度也为 128 位, 类似的算法还有常用的 AES 加密算法, 两者的加密原理类似.</p>
+<h2 id="常用加密模式">常用加密模式</h2>
+<p>分组加密算法有多种加密模式, 比较常用的是 CBC 模式, 具体了解可以参考这篇博文: <a href="https://www.cnblogs.com/11sgXL/p/13607083.html"><em>分组加密算法的几种工作模式</em></a>, 该模式中的初始向量 <strong>IV</strong> 的长度, 通常与分组大小一致.</p>
+<h2 id="java-中的填充模式-pkcs5padding">Java 中的填充模式 PKCS5Padding</h2>
+<p>分组加密通常需要对明文数据进行字节填充, 以使得明文长度为分组大小的整倍数. 常用的填充模式为 <code>PKCS7Padding</code> , 但是 Java 中没有 PKCS7Padding . 实际上 Java 中的 <strong>PKCS5Padding</strong> 指的就是 <strong>PKCS7Padding</strong> , 这可能是一个 Java 的历史遗留问题, 需要注意下.</p>
+<p>两者的区别如下:</p>
+<blockquote>
+<p>The difference between the PKCS#5 and PKCS#7 padding mechanisms is the block size; PKCS#5 padding is defined for 8-byte block sizes, PKCS#7 padding would work for any block size from 1 to 255 bytes. So fundamentally PKCS#5 padding is a subset of PKCS#7 padding for 8 byte block sizes.</p>
+</blockquote>
+<h2 id="计算加密后的文件大小">计算加密后的文件大小</h2>
+<p>公式如下:</p>
+<pre><code>cipherLen = (clearLen/16 + 1) * 16;
+</code></pre>
+<p>Please note that if the clear-text is multiple of block size, a whole new block is needed for padding. Say you clear-text is 16 bytes. The cipher-text will take 32 bytes.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://happyjustyn.github.io/post/hello-gridea/</id>
+        <link href="https://happyjustyn.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="https://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
